@@ -84,10 +84,10 @@ const RootStack= createBottomTabNavigator(
 
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: 'red',
       inactiveTintColor: 'gray',
      style:{
-      backgroundColor:'#cccfff',
+      backgroundColor:'#ccff',
       height: 50,
       shadowColor: 'red',
     shadowOffset: { width: 4, height: 4 }, 

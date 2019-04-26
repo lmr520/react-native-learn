@@ -32,28 +32,29 @@ export default class RTab extends React.Component {
     const { search } = this.state;
     /* 2. Read the params from the navigation state */
     return (
-      <View style={ { flex: 1, flexDirection: 'column' } }>
+      <View style={ { flex: 1, flexDirection: 'column',backgroundColor:'#FFFFFF'} }>
         <View>
           <Header
             containerStyle={ {
-              backgroundColor: '#3D6DCC',
+              backgroundColor: '#3399ff',
               justifyContent: 'space-around',
-              height: 54
+              height: 61
             } }
             // backgroundImage={ require('../../src/assets/images/contemplative-reptile.jpg')}
-            leftComponent={ { icon: 'menu', color: '#fff' } }
+            leftComponent={ { icon: 'menu', color: '#fff',size:32} }
             centerComponent={ <SearchBar
-              containerStyle={ style = { backgroundColor: '#3D6DCC', width: 300, top: -8, borderRadius: 10, borderTopColor: '#3D6DCC' } }
+              containerStyle={ style = { backgroundColor: '#3399ff', width: 300, top: -8, borderRadius: 10, borderTopColor: '#3399ff',height:57} }
               inputContainerStyle={ style = { backgroundColor: '#FFFFFF' } }
               placeholder="请输入..."
               onChangeText={ this.updateSearch }
               value={ search }
               lightTheme={ true }
+              clearIcon={{ icon: 'menu', color: 'gray'}}
             /> }
-            rightComponent={ { icon: 'home', color: '#fff' } }
+            rightComponent={ { icon: 'home', color: '#fff',size:32} }
           />
         </View>
-        <View style={ { height: 200, top: 10 } }>
+        <View style={ { height: 200, top: 8} }>
           <Swiper
             style={ styles.swiper }          //样式
             height={ 200 }                   //组件高度
@@ -74,7 +75,7 @@ export default class RTab extends React.Component {
               marginTop: -15,
             } } /> }
             activeDot={ <View style={ {    //选中的圆点样式
-              backgroundColor: '#007aff',
+              backgroundColor: '#3399ff',
               width: 8,
               height: 8,
               borderRadius: 4,
@@ -87,122 +88,122 @@ export default class RTab extends React.Component {
             <Image source={ require('../../src/assets/images/yylogo.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u8.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u10.jpg') } style={ styles.img } />
-            <Image source={ require('../../src/assets/images/u9.jpg') } style={ styles.img } />
+            <Image source={ require('../../src/assets/images/u6.jpg') } style={ styles.img } />
           </Swiper>
         </View>
-        <View style={ { top: 40 ,borderRadius:5,left:5,right:5,borderWidth:1} }>
+        <View style={ { top: 40 ,marginLeft:6,marginRight:6,borderWidth:1,borderRadius:5,borderColor:'#C7C7C7',backgroundColor:'#FFF'} }>
           <View style={ { flexDirection: 'column' } }>
-            <View style={ { flexDirection: 'row' } }>
-               <View style={ { padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'security' } size={ 32 } color={ "#ff5000" }
+            <View style={ { flexDirection: 'row'} }>
+             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'security' } size={ 32 } color={ "#EE0000" }
                 onPress={this.test}
                 />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'headphones' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'headphones' } size={ 32 } color={ "teal" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'human-female-female' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'human-female-female' } size={ 32 } color={ "teal" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View> 
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'jsfiddle' } size={ 32 } color={ "#0099ff" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'jsfiddle' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'leaf' } size={ 32 } color={ "green" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'leaf' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-               <View style={ { padding: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'laptop-windows' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-               <View style={ { padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'movie-roll' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'hockey-sticks' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'lan' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'package-variant' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'medal' } size={ 32 } color={ "#ff5000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-               <View style={ { padding: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'passport-biometric' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'laptop-windows' } size={ 32 } color={ "teal" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
             </View>
-            <View style={ { flexDirection: 'row' } }>
-               <View style={ { padding: 10, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'pinwheel-outline' } size={ 32 } color={ "#ff5000" } />
+            <View style={ { flexDirection: 'row'} }>
+               <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'movie-roll' } size={ 32 } color={ "#0099ff" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'pocket' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'hockey-sticks' } size={ 32 } color={ "teal" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'projector' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'lan' } size={ 32 } color={ "teal" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'signal-5g' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'package-variant' } size={ 32 } color={ "teal " } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-              <View style={ { padding: 20, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'rhombus-split' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'medal' } size={ 32 } color={ "#0099ff" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
               </View>
-               <View style={ { padding: 13, alignItems: 'center', justifyContent: 'center', backgroundColor: '#bfc4c6' } }>
-                <MaterialCommunityIcons name={ 'school' } size={ 32 } color={ "#ff5000" } />
+             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'passport-biometric' } size={ 32 } color={ "#EE0000" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+            </View>
+            <View style={ { flexDirection: 'row'} }>
+             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'pinwheel-outline' } size={ 32 } color={ "#EE0000" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'pocket' } size={ 32 } color={ "#0099ff" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'projector' } size={ 32 } color={ "green" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'signal-5g' } size={ 32 } color={ "black" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'rhombus-split' } size={ 32 } color={ "#0099ff" } />
+                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
+                  测试
+            </Text>
+              </View>
+             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
+                <MaterialCommunityIcons name={ 'school' } size={ 32 } color={ "teal" } />
                 <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
                   测试
             </Text>
