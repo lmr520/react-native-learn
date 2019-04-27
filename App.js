@@ -1,10 +1,14 @@
 import React from 'react';
 import { Button, Image, Platform, View, Text,StyleSheet} from 'react-native';
-import {createAppContainer,createBottomTabNavigator} from 'react-navigation';
+import {createAppContainer,createBottomTabNavigator,createStackNavigator,createSwitchNavigator} from 'react-navigation';
 import HomeScreen from './src/pages/HomeScreen';
 import DetailsScreen from './src/pages/DetailsScreen';
 import Cust from './src/pages/Cust';
 import RTable from './src/pages/RTab';
+import  Login from './src/pages/Login';
+import AuthLoading from './src/pages/AuthLoading';
+import Customer from './src/pages/customer/customer';
+import videodetail from './src/pages/details/videodetail'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 class IconWithBadge extends React.Component {
   render() {
@@ -64,7 +68,7 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
 const RootStack= createBottomTabNavigator(
   {
     Home: {
-      screen: RTable,
+      screen: HomeScreen,
     },
     Details: {
       screen: DetailsScreen,
@@ -73,9 +77,10 @@ const RootStack= createBottomTabNavigator(
       screen:Cust,
     },
     RTable:{
-      screen:HomeScreen
-    },
+      screen:RTable
+    }
   },
+
   {
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) =>
@@ -85,9 +90,9 @@ const RootStack= createBottomTabNavigator(
     }),
     tabBarOptions: {
       activeTintColor: 'red',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: '#fff',
      style:{
-      backgroundColor:'#ccff',
+      backgroundColor:'#3399ff',
       height: 50,
       shadowColor: 'red',
     shadowOffset: { width: 4, height: 4 }, 
@@ -106,6 +111,15 @@ const RootStack= createBottomTabNavigator(
     }
   }
 );
+const OtherStack= createStackNavigator(
+  {
+    Customer: {
+      screen: Customer,
+    },
+    videodetail: {
+      screen: videodetail,
+    },
+  },);
 // const RootStack = createStackNavigator(
 //   {
 //     Home: {
@@ -134,14 +148,29 @@ const RootStack= createBottomTabNavigator(
 //     },
 //   }
 // );
+const AuthStack = createStackNavigator({
+  Login: Login,
+})
+// const AppContainer = createAppContainer(RootStack);
 
-const AppContainer = createAppContainer(RootStack);
-
-export default class App extends React.Component {
-  render() {
-    return <AppContainer />;
+export default createAppContainer(createSwitchNavigator(
+  {
+    AuthLoading: AuthLoading,
+    App: RootStack,
+    Auth: AuthStack,
+    Other:OtherStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
   }
-}
+)
+);
+
+// export default class App extends React.Component {
+//   render() {
+//     return <AppContainer />;
+//   }
+// }
 const styles = StyleSheet.create({
  
   shadowStyle: {

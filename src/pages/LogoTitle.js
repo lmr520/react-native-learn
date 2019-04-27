@@ -18,7 +18,7 @@ export default class LogoTitle extends React.Component {
           </Svg> */}
 
         </View>
-        <View style={{width: 60, height: 40,marginLeft:130,alignItems: 'center', justifyContent: 'center'}} >
+        <View style={{width: 60, height: 40,marginLeft:110,alignItems: 'center', justifyContent: 'center'}} >
         <Text style={{fontWeight: 'bold'}}> 首页</Text>
         {/* <Svg role="img" xmlns="http://www.w3.org/2000/svg" width={40} height={40} viewBox="0 0 24 24" aria-labelledby="cloudUploadIconTitle cloudUploadIconDesc" stroke="red" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="red">
         <Path  d="M6.5,18 C4.01471863,18 2,15.9852814 2,13.5 C2,11.0147186 4.01471863,9 6.5,9 C6.9194849,9 7.3255638,9.05739789 7.71081142,9.16476838 C8.72277,7.28089089 10.711801,6 13,6 C15.9817502,6 18.4554927,8.17503894 18.9211951,11.0250841 C20.6555928,11.2331085 22,12.7095527 22,14.5 C22,16.4329966 20.4329966,18 18.5,18 L6.5,18 Z"/>

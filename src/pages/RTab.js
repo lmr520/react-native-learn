@@ -1,60 +1,119 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import { Card, ListItem, Button, Icon, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider,Overlay} from 'react-native-elements';
+import { Image, Platform, StyleSheet, Modal, Text, View, ScrollView, TouchableHighlight, TouchableOpacity, AsyncStorage } from 'react-native';
+import { Card, ListItem, Button, Icon, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay } from 'react-native-elements';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Swiper from 'react-native-swiper';
+import xyys from './xyys/xyys';
+import colorjson from './xyys/colors';
 export default class RTab extends React.Component {
   state = {
     loading: true,
     users: [],
     search: '',
-    isVisible:true
+    isVisible: true,
+    modalVisible: false
   }
   updateSearch = search => {
     this.setState({ search });
   };
 
-  test=()=>{
+  test = () => {
     alert("欢迎来到云平台!")
-//     return (<View>
-//       <Overlay
-//   isVisible={this.state.isVisible}
-//   windowBackgroundColor="rgba(255, 255, 255, .5)"
-//   overlayBackgroundColor="red"
-//   width="auto"
-//   height="auto"
-// >
-//   <Text>Hello from Overlay!</Text>
-// </Overlay>;
-//     </View>);
+    //     return (<View>
+    //       <Overlay
+    //   isVisible={this.state.isVisible}
+    //   windowBackgroundColor="rgba(255, 255, 255, .5)"
+    //   overlayBackgroundColor="red"
+    //   width="auto"
+    //   height="auto"
+    // >
+    //   <Text>Hello from Overlay!</Text>
+    // </Overlay>;
+    //     </View>);
+  };
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
+  }
+  exitlogin = () => {
+    AsyncStorage.removeItem("userToken");
+    this.props.navigation.navigate('Auth');
+  }
+  toMy = () => {
+    this.props.navigation.navigate('Customer');
+  }
+  runxyy = (xyy) => {
+    switch (xyy) {
+      case 'test':
+        return this.test();
+      case 'toMy':
+        return this.toMy();
+      case 'exitlogin':
+        return this.exitlogin();
+      case 'setModalVisible':
+        return this.setModalVisible();
+      default:
+        return this.test();
+    }
+  }
+  renderItem(line) {
+    var linelength=line*6;
+    var lineindex=0;
+    if(line==1){
+      lineindex=0;
+    }else{
+      lineindex=(line-1)*6;
+    }
+    // 数组
+    var itemAry = [];
+    // 颜色数组
+    var colorAry = ['gray', 'green', 'blue', 'yellow', 'black', 'orange'];
+    // 遍历
+    for (let index =lineindex; index <linelength; index++) {
+      const xyy = xyys[index];
+      itemAry.push(
+        <View style={ styles.xyyicon }>
+          <MaterialCommunityIcons name={ xyy.icon.name } size={ xyy.icon.size } color={colorjson[Math.floor(Math.random()*colorjson.length)]}
+            onPress={ () => {
+              this.runxyy(xyy.function);
+            } }
+          />
+          <Text style={ { fontSize: 12, fontWeight: 'bold', top: 5 } }>
+            { xyy.name }
+          </Text>
+        </View>
+      );
+    }
+    return itemAry;
   }
   render() {
     const { search } = this.state;
     /* 2. Read the params from the navigation state */
     return (
-      <View style={ { flex: 1, flexDirection: 'column',backgroundColor:'#FFFFFF'} }>
+      <View style={ { flex: 1, flexDirection: 'column', backgroundColor: '#FFFFFF' } }>
         <View>
           <Header
             containerStyle={ {
               backgroundColor: '#3399ff',
               justifyContent: 'space-around',
-              height: 61
+              height: 54,
+              top: -10
             } }
             // backgroundImage={ require('../../src/assets/images/contemplative-reptile.jpg')}
-            leftComponent={ { icon: 'menu', color: '#fff',size:32} }
+            leftComponent={ { icon: 'menu', color: '#fff', size: 28 } }
             centerComponent={ <SearchBar
-              containerStyle={ style = { backgroundColor: '#3399ff', width: 300, top: -8, borderRadius: 10, borderTopColor: '#3399ff',height:57} }
-              inputContainerStyle={ style = { backgroundColor: '#FFFFFF' } }
+              containerStyle={ style = { width: 260, height: 35, top: -3, borderRadius: 2.5, borderWidth: 1, borderColor: '#3399ff' } }
+              inputContainerStyle={ style = { height: 20, borderRadius: 25, top: -7, backgroundColor: '#ffffff' } }
+              inputStyle={ style = { fontSize: 12, height: 20 } }
               placeholder="请输入..."
               onChangeText={ this.updateSearch }
               value={ search }
               lightTheme={ true }
-              clearIcon={{ icon: 'menu', color: 'gray'}}
+              clearIcon={ { icon: 'menu', color: 'gray' } }
             /> }
-            rightComponent={ { icon: 'home', color: '#fff',size:32} }
+            rightComponent={ { icon: 'home', color: '#fff', size: 28 } }
           />
         </View>
-        <View style={ { height: 200, top: 8} }>
+        <View style={ { height: 200, top: -11 } }>
           <Swiper
             style={ styles.swiper }          //样式
             height={ 200 }                   //组件高度
@@ -89,128 +148,55 @@ export default class RTab extends React.Component {
             <Image source={ require('../../src/assets/images/u8.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u10.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u6.jpg') } style={ styles.img } />
+            <Image source={require('../../src/assets/images/u3.jpg')} style={styles.img}/>
+            <Image source={require('../../src/assets/images/contemplative-reptile.jpg')} style={styles.img}/>
           </Swiper>
         </View>
-        <View style={ { top: 40 ,marginLeft:6,marginRight:6,borderWidth:1,borderRadius:5,borderColor:'#C7C7C7',backgroundColor:'#FFF'} }>
-          <View style={ { flexDirection: 'column' } }>
-            <View style={ { flexDirection: 'row'} }>
-             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'security' } size={ 32 } color={ "#EE0000" }
-                onPress={this.test}
-                />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'headphones' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'human-female-female' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View> 
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'jsfiddle' } size={ 32 } color={ "#0099ff" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'leaf' } size={ 32 } color={ "green" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'laptop-windows' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-            </View>
-            <View style={ { flexDirection: 'row'} }>
-               <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'movie-roll' } size={ 32 } color={ "#0099ff" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'hockey-sticks' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'lan' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'package-variant' } size={ 32 } color={ "teal " } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'medal' } size={ 32 } color={ "#0099ff" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'passport-biometric' } size={ 32 } color={ "#EE0000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-            </View>
-            <View style={ { flexDirection: 'row'} }>
-             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'pinwheel-outline' } size={ 32 } color={ "#EE0000" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'pocket' } size={ 32 } color={ "#0099ff" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'projector' } size={ 32 } color={ "green" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'signal-5g' } size={ 32 } color={ "black" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 17, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'rhombus-split' } size={ 32 } color={ "#0099ff" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-             <View style={ { padding: 15, alignItems: 'center', justifyContent: 'center' } }>
-                <MaterialCommunityIcons name={ 'school' } size={ 32 } color={ "teal" } />
-                <Text style={ { fontSize: 14, fontWeight: 'bold', top: 5 } }>
-                  测试
-            </Text>
-              </View>
-            </View>
+        <View style={{height:270}}>
+        <ScrollView style={ styles.xyys }>
+        <View style={ { flexDirection: 'row' } }>
+            { this.renderItem(1) }
           </View>
-
+          <View style={ { flexDirection: 'row' } }>
+          { this.renderItem(2) }
+          </View>
+          <View style={ { flexDirection: 'row' } }>
+          { this.renderItem(3) }
+          </View>
+          <View style={ { flexDirection: 'row' } }>
+          { this.renderItem(1) }
+          </View>
+          <View style={ { flexDirection: 'row' } }>
+          { this.renderItem(3) }
+          </View>
+        </ScrollView>
+        </View>
+        <View style={ { marginTop: 22 } }>
+          <Modal
+            animationType="slide"
+            transparent={ false }
+            visible={ this.state.modalVisible }
+            onRequestClose={ () => {
+              alert("Modal has been closed.");
+            } }
+            presentationStyle='overFullScreen'
+          >
+            <View style={ { marginTop: 22 } }>
+              <View>
+                <Image
+                  source={ require('../../src/assets/images/contemplative-reptile.jpg') }
+                  style={ { width: 300, height: 400, margin: 20 } }
+                ></Image>
+                <TouchableHighlight
+                  onPress={ () => {
+                    this.setModalVisible(!this.state.modalVisible);
+                  } }
+                >
+                  <Text>Hide Modal</Text>
+                </TouchableHighlight>
+              </View>
+            </View>
+          </Modal>
         </View>
 
       </View>
@@ -222,11 +208,33 @@ export default class RTab extends React.Component {
 const styles = StyleSheet.create({
 
   swiper: {
-    backgroundColor: 'gray'
+    backgroundColor: 'gray',
+    borderWidth: 1,
+    borderColor: 'gray'
   },
   img: {
+    top: 2,
     marginBottom: 5,
-    width: 410,
+    width: 370,
     height: 195,
+  },
+  xyys: {
+    flexDirection: 'column',
+    height: 270,
+    top: 20,
+    marginLeft: 6,
+    marginRight: 6,
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: '#C7C7C7',
+    backgroundColor: '#FFF'
+  },
+  xyyicon: {
+    marginTop: 5,
+    marginLeft: 6,
+    width: 50,
+    height:60,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });

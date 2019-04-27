@@ -1,0 +1,176 @@
+[
+    {
+        "id": "xyy1",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "security",
+            "size": 32,
+            "color": "#EE0000"
+        }
+    },
+    {
+        "id": "xyy2",
+        "name": "退出登录",
+        "function": "exitlogin",
+        "icon": {
+            "name": "headphones",
+            "size": 32,
+            "color": "teal"
+        }
+    },
+    {
+        "id": "xyy3",
+        "name": "个人中心",
+        "function": "toMy",
+        "icon": {
+            "name": "human-female-female",
+            "size": 32,
+            "color": "#00E5EE"
+        }
+    },{
+        "id": "xyy4",
+        "name": "model",
+        "function": "setModalVisible",
+        "icon": {
+            "name": "jsfiddle",
+            "size": 32,
+            "color": "#0099ff"
+        }
+    },
+    {
+        "id": "xyy5",
+        "name": "视频",
+        "function": "videodetail",
+        "icon": {
+            "name": "leaf",
+            "size": 32,
+            "color": "green"
+        }
+    },{
+        "id": "xyy6",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "laptop-windows",
+            "size": 32,
+            "color": "teal"
+        }
+    },
+    {
+        "id": "xyy7",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "movie-roll",
+            "size": 32,
+            "color": "#0099ff"
+        }
+    },
+    {
+        "id": "xyy8",
+        "name": "退出登录",
+        "function": "exitlogin",
+        "icon": {
+            "name": "package-variant",
+            "size": 32,
+            "color": "teal"
+        }
+    },
+    {
+        "id": "xyy9",
+        "name": "个人中心",
+        "function": "toMy",
+        "icon": {
+            "name": "medal",
+            "size": 32,
+            "color": "#00E5EE"
+        }
+    },{
+        "id": "xyy10",
+        "name": "model",
+        "function": "setModalVisible",
+        "icon": {
+            "name": "passport-biometric",
+            "size": 32,
+            "color": "#0099ff"
+        }
+    },
+    {
+        "id": "xyy11",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "hockey-sticks",
+            "size": 32,
+            "color": "green"
+        }
+    },{
+        "id": "xyy12",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "lan",
+            "size": 32,
+            "color": "teal"
+        }
+    },
+    {
+        "id": "xyy13",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "pinwheel-outline",
+            "size": 32,
+            "color": "#0099ff"
+        }
+    },
+    {
+        "id": "xyy14",
+        "name": "退出登录",
+        "function": "exitlogin",
+        "icon": {
+            "name": "projector",
+            "size": 32,
+            "color": "teal"
+        }
+    },
+    {
+        "id": "xyy15",
+        "name": "个人中心",
+        "function": "toMy",
+        "icon": {
+            "name": "signal-5g",
+            "size": 32,
+            "color": "#00E5EE"
+        }
+    },{
+        "id": "xyy10",
+        "name": "model",
+        "function": "setModalVisible",
+        "icon": {
+            "name": "pocket",
+            "size": 32,
+            "color": "#0099ff"
+        }
+    },
+    {
+        "id": "xyy17",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "rhombus-split",
+            "size": 32,
+            "color": "green"
+        }
+    },{
+        "id": "xyy18",
+        "name": "测试",
+        "function": "test",
+        "icon": {
+            "name": "school",
+            "size": 32,
+            "color": "teal"
+        }
+    }
+]
