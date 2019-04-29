@@ -3,7 +3,6 @@ import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity, 
 import { Card, ListItem, Button, Icon, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay, Input } from 'react-native-elements';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import CookieManager from 'react-native-cookies'
-import Swiper from 'react-native-swiper';
 export default class Login extends React.Component {
     static navigationOptions = {
         headerTitle: (
@@ -24,12 +23,14 @@ export default class Login extends React.Component {
     };
     state = {
         username: 'admin',
-        pass: ''
+        pass: '',
     }
     _signInAsync = async () => {
         await AsyncStorage.setItem('userToken', this.state.username);
-        var user={ username: 'admin',
-        pass: ''}
+        var user = {
+            username: 'admin',
+            pass: ''
+        }
         this.props.navigation.navigate('App');
     };
     render() {
@@ -54,6 +55,10 @@ export default class Login extends React.Component {
                         <Input
                             style={ { width: 200 } }
                             placeholder='密码'
+                            autoComplete='password'
+                            password={true}
+                            errorStyle={ { color: 'red' } }
+                            errorMessage='密码不得低于6位'
                             leftIcon={
                                 <MaterialCommunityIcons
                                     name='briefcase-account'

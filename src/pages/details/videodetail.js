@@ -62,14 +62,14 @@ export default class videodetail extends React.Component {
         return {
             headerLeft: (
                 <View style={ { flex: 1, flexDirection: 'row' } }>
-                    <View style={ { width: 50, height: 40, alignItems: 'center', justifyContent: 'center' } }>
+                    <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
                         <MaterialCommunityIcons
                             raised
-                            name='chevron-double-left'
+                            name='keyboard-backspace'
                             type='font-awesome'
                             color='#f50'
                             backgroundColor="#cccfff"
-                            size={ 32 }
+                            size={ 25 }
                             onPress={ navigation.getParam('back') } />
                         {/* <Button
               icon={ <Icon name='ios-american-football' color='red'/> }
@@ -105,14 +105,14 @@ export default class videodetail extends React.Component {
             ),
             headerRight: (
                 <View style={ { flex: 1, flexDirection: 'row' } }>
-                    <View style={ { width: 50, height: 40, alignItems: 'center', justifyContent: 'center' } }>
+                    <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
                         <MaterialCommunityIcons
                             raised
-                            name='account-off'
+                            name='share-variant'
                             type='font-awesome'
                             color='#f50'
                             backgroundColor="#cccfff"
-                            size={ 32 }
+                            size={ 25 }
                             onPress={ navigation.getParam('exitlogin') } />
                         {/* <Button
               icon={ <Icon name='ios-american-football' color='red'/> }
@@ -379,7 +379,7 @@ export default class videodetail extends React.Component {
                                     <TouchableWithoutFeedback onPress={ () => { this.onPressPlayButton() } }>
                                         <Image
                                             style={ styles.playButton }
-                                            source={ require('../../assets/images/play.png') }
+                                            source={ require('../../assets/images/play3.png') }
                                         />
                                     </TouchableWithoutFeedback>
                             }
@@ -391,7 +391,7 @@ export default class videodetail extends React.Component {
                                 <TouchableOpacity activeOpacity={ 0.3 } onPress={ () => { this.onControlPlayPress() } }>
                                     <Image
                                         style={ styles.playControl }
-                                        source={ this.state.isPlaying ? require('../../assets/images/stop.png') : require('../../assets/images/play.png') }
+                                        source={ this.state.isPlaying ? require('../../assets/images/stop.png') : require('../../assets/images/PLAY5.png') }
                                     />
                                 </TouchableOpacity>
                                 <Text style={ styles.time }>{ formatTime(this.state.currentTime) }</Text>

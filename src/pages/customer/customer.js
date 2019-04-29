@@ -11,14 +11,14 @@ export default class customer extends React.Component {
     return {
         headerLeft:(
             <View style={ { flex: 1, flexDirection: 'row' } }>
-          <View style={ { width: 50, height: 40, alignItems: 'center', justifyContent: 'center' } }>
+          <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
             <MaterialCommunityIcons
               raised
-              name='chevron-double-left'
+              name='keyboard-backspace'
               type='font-awesome'
               color='#f50'
               backgroundColor="#cccfff"
-              size={ 32 }
+              size={ 25 }
               onPress={ navigation.getParam('back') } />
             {/* <Button
               icon={ <Icon name='ios-american-football' color='red'/> }
@@ -54,14 +54,14 @@ export default class customer extends React.Component {
       ),
       headerRight: (
         <View style={ { flex: 1, flexDirection: 'row' } }>
-          <View style={ { width: 50, height: 40, alignItems: 'center', justifyContent: 'center' } }>
+          <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
             <MaterialCommunityIcons
               raised
-              name='account-off'
+              name='settings'
               type='font-awesome'
               color='#f50'
               backgroundColor="#cccfff"
-              size={ 32 }
+              size={ 25 }
               onPress={ navigation.getParam('exitlogin') } />
             {/* <Button
               icon={ <Icon name='ios-american-football' color='red'/> }

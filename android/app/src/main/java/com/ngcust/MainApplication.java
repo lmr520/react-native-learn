@@ -3,6 +3,7 @@ package com.ngcust;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.bolan9999.SpringScrollViewPackage;
 import com.github.yamill.orientation.OrientationPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.rnfs.RNFSPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SpringScrollViewPackage(),
             new OrientationPackage(),
             new ReactVideoPackage(),
             new RNFSPackage(),

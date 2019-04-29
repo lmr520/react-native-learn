@@ -5,7 +5,7 @@
         "function": "test",
         "icon": {
             "name": "security",
-            "size": 32,
+            "size": 22,
             "color": "#EE0000"
         }
     },
@@ -15,7 +15,7 @@
         "function": "exitlogin",
         "icon": {
             "name": "headphones",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     },
@@ -25,7 +25,7 @@
         "function": "toMy",
         "icon": {
             "name": "human-female-female",
-            "size": 32,
+            "size": 22,
             "color": "#00E5EE"
         }
     },{
@@ -34,7 +34,7 @@
         "function": "setModalVisible",
         "icon": {
             "name": "jsfiddle",
-            "size": 32,
+            "size": 22,
             "color": "#0099ff"
         }
     },
@@ -44,16 +44,16 @@
         "function": "videodetail",
         "icon": {
             "name": "leaf",
-            "size": 32,
+            "size": 22,
             "color": "green"
         }
     },{
         "id": "xyy6",
         "name": "测试",
-        "function": "test",
+        "function": "tomusic",
         "icon": {
             "name": "laptop-windows",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     },
@@ -63,27 +63,27 @@
         "function": "test",
         "icon": {
             "name": "movie-roll",
-            "size": 32,
+            "size": 22,
             "color": "#0099ff"
         }
     },
     {
         "id": "xyy8",
         "name": "退出登录",
-        "function": "exitlogin",
+        "function": "show3",
         "icon": {
             "name": "package-variant",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     },
     {
         "id": "xyy9",
         "name": "个人中心",
-        "function": "toMy",
+        "function": "show2",
         "icon": {
             "name": "medal",
-            "size": 32,
+            "size": 22,
             "color": "#00E5EE"
         }
     },{
@@ -92,7 +92,7 @@
         "function": "setModalVisible",
         "icon": {
             "name": "passport-biometric",
-            "size": 32,
+            "size": 22,
             "color": "#0099ff"
         }
     },
@@ -102,7 +102,7 @@
         "function": "test",
         "icon": {
             "name": "hockey-sticks",
-            "size": 32,
+            "size": 22,
             "color": "green"
         }
     },{
@@ -111,7 +111,7 @@
         "function": "test",
         "icon": {
             "name": "lan",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     },
@@ -121,7 +121,7 @@
         "function": "test",
         "icon": {
             "name": "pinwheel-outline",
-            "size": 32,
+            "size": 22,
             "color": "#0099ff"
         }
     },
@@ -131,7 +131,7 @@
         "function": "exitlogin",
         "icon": {
             "name": "projector",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     },
@@ -141,7 +141,7 @@
         "function": "toMy",
         "icon": {
             "name": "signal-5g",
-            "size": 32,
+            "size": 22,
             "color": "#00E5EE"
         }
     },{
@@ -150,7 +150,7 @@
         "function": "setModalVisible",
         "icon": {
             "name": "pocket",
-            "size": 32,
+            "size": 22,
             "color": "#0099ff"
         }
     },
@@ -160,7 +160,7 @@
         "function": "test",
         "icon": {
             "name": "rhombus-split",
-            "size": 32,
+            "size": 22,
             "color": "green"
         }
     },{
@@ -169,7 +169,7 @@
         "function": "test",
         "icon": {
             "name": "school",
-            "size": 32,
+            "size": 22,
             "color": "teal"
         }
     }

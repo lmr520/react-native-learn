@@ -65,6 +65,7 @@
 		4CD3282073274135ABAD98E8 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4F84AFF36704D2A99BE45A1 /* libRNFS.a */; };
 		A9BC98E3F71B4F7090A4249D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF3F16DB35A4A969696B034 /* libRCTVideo.a */; };
 		2D4C75BB882D4499958E8E81 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0257703EBE44D4A9450BFF2 /* libRCTOrientation.a */; };
+		F31824A6B8974DA2B5CD3DBD /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC98F8992DB64A129F9B705E /* libRNSpringScrollView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +407,8 @@
 		0EF3F16DB35A4A969696B034 /* libRCTVideo.a */ = {isa = PBXFileReference; name = "libRCTVideo.a"; path = "libRCTVideo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		1A91C4C37ECD4E8E9A0FD97E /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; name = "RCTOrientation.xcodeproj"; path = "../node_modules/react-native-orientation/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		B0257703EBE44D4A9450BFF2 /* libRCTOrientation.a */ = {isa = PBXFileReference; name = "libRCTOrientation.a"; path = "libRCTOrientation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		C45F7ED4F1C2414F8D1B7136 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; name = "RNSpringScrollView.xcodeproj"; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		FC98F8992DB64A129F9B705E /* libRNSpringScrollView.a */ = {isa = PBXFileReference; name = "libRNSpringScrollView.a"; path = "libRNSpringScrollView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +445,7 @@
 				4CD3282073274135ABAD98E8 /* libRNFS.a in Frameworks */,
 				A9BC98E3F71B4F7090A4249D /* libRCTVideo.a in Frameworks */,
 				2D4C75BB882D4499958E8E81 /* libRCTOrientation.a in Frameworks */,
+				F31824A6B8974DA2B5CD3DBD /* libRNSpringScrollView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +646,7 @@
 				364E7F490D774F20BBCF893F /* RNFS.xcodeproj */,
 				A9E233FEBFD74E60B043D2A4 /* RCTVideo.xcodeproj */,
 				1A91C4C37ECD4E8E9A0FD97E /* RCTOrientation.xcodeproj */,
+				C45F7ED4F1C2414F8D1B7136 /* RNSpringScrollView.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1319,6 +1324,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1330,6 +1336,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Debug;
@@ -1362,6 +1369,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1373,6 +1381,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Release;
@@ -1403,6 +1412,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Debug;
@@ -1432,6 +1442,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Release;
@@ -1472,6 +1483,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1483,6 +1495,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Debug;
@@ -1523,6 +1536,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1534,6 +1548,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Release;
@@ -1573,6 +1588,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1584,6 +1600,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Debug;
@@ -1623,6 +1640,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1634,6 +1652,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-fs/**",
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
+					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
 				);
 			};
 			name = Release;

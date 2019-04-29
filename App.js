@@ -8,7 +8,9 @@ import RTable from './src/pages/RTab';
 import  Login from './src/pages/Login';
 import AuthLoading from './src/pages/AuthLoading';
 import Customer from './src/pages/customer/customer';
-import videodetail from './src/pages/details/videodetail'
+import videodetail from './src/pages/details/videodetail';
+import Menu from './src/pages/customer/menus';
+import MusicList from './src/pages/pagetable/musiclist';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 class IconWithBadge extends React.Component {
   render() {
@@ -53,9 +55,10 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   if (routeName === 'Home') {
     iconName = `home${focused ? '' : '-outline'}`;
     // We want to add badges to home tab icon
-    IconComponent = HomeIconWithBadge;
+    // IconComponent = HomeIconWithBadge;
   } else if (routeName === 'Details') {
     iconName = `cart${focused ? '' : '-outline'}`;
+    IconComponent = HomeIconWithBadge;
   }else if (routeName === 'Cust') {
     iconName = `coffee${focused ? '' : '-outline'}`;
   }else if (routeName === 'RTable') {
@@ -113,12 +116,19 @@ const RootStack= createBottomTabNavigator(
 );
 const OtherStack= createStackNavigator(
   {
+    Home:RootStack,
     Customer: {
       screen: Customer,
     },
     videodetail: {
       screen: videodetail,
     },
+    Menu:{
+      screen: Menu,
+    },
+    MusicList:{
+      screen: MusicList,
+    }
   },);
 // const RootStack = createStackNavigator(
 //   {

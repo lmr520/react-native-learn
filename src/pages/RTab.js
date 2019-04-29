@@ -5,7 +5,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Swiper from 'react-native-swiper';
 import xyys from './xyys/xyys';
 import colorjson from './xyys/colors';
-export default class RTab extends React.Component {
+import DeviceStorage from '../config/DeviceStorage'
+import CookieManager from 'react-native-cookies'
+export default class Ratb extends React.Component {
   state = {
     loading: true,
     users: [],
@@ -18,6 +20,11 @@ export default class RTab extends React.Component {
   };
 
   test = () => {
+    var user = {
+      username: 'admin',
+      pass: ''
+    }
+    DeviceStorage.save("user", "fdghjefgjg");
     alert("欢迎来到云平台!")
     //     return (<View>
     //       <Overlay
@@ -41,6 +48,12 @@ export default class RTab extends React.Component {
   toMy = () => {
     this.props.navigation.navigate('Customer');
   }
+  tovideo = () => {
+    this.props.navigation.navigate('videodetail');
+  }
+  tomenu = () => {
+    this.props.navigation.navigate('Menu');
+  }
   runxyy = (xyy) => {
     switch (xyy) {
       case 'test':
@@ -51,28 +64,32 @@ export default class RTab extends React.Component {
         return this.exitlogin();
       case 'setModalVisible':
         return this.setModalVisible();
+      case 'videodetail':
+        return this.tovideo();
+      case 'tomenu':
+        return this.tomenu();
       default:
         return this.test();
     }
   }
   renderItem(line) {
-    var linelength=line*6;
-    var lineindex=0;
-    if(line==1){
-      lineindex=0;
-    }else{
-      lineindex=(line-1)*6;
+    var linelength = line * 6;
+    var lineindex = 0;
+    if (line == 1) {
+      lineindex = 0;
+    } else {
+      lineindex = (line - 1) * 6;
     }
     // 数组
     var itemAry = [];
     // 颜色数组
     var colorAry = ['gray', 'green', 'blue', 'yellow', 'black', 'orange'];
     // 遍历
-    for (let index =lineindex; index <linelength; index++) {
+    for (let index = lineindex; index < linelength; index++) {
       const xyy = xyys[index];
       itemAry.push(
         <View style={ styles.xyyicon }>
-          <MaterialCommunityIcons name={ xyy.icon.name } size={ xyy.icon.size } color={colorjson[Math.floor(Math.random()*colorjson.length)]}
+          <MaterialCommunityIcons name={ xyy.icon.name } size={ xyy.icon.size } color={ colorjson[Math.floor(Math.random() * colorjson.length)] }
             onPress={ () => {
               this.runxyy(xyy.function);
             } }
@@ -99,9 +116,14 @@ export default class RTab extends React.Component {
               top: -10
             } }
             // backgroundImage={ require('../../src/assets/images/contemplative-reptile.jpg')}
-            leftComponent={ { icon: 'menu', color: '#fff', size: 28 } }
+            leftComponent={ <MaterialCommunityIcons name={ 'menu' } size={ 28 } color={ '#fff' }
+              onPress={ () => {
+                this.runxyy("tomenu");
+              } }
+            />
+            }
             centerComponent={ <SearchBar
-              containerStyle={ style = { width: 260, height: 35, top: -3, borderRadius: 2.5, borderWidth: 1, borderColor: '#3399ff' } }
+              containerStyle={ style = { width: 260, height: 35, top: -3, borderRadius: 2.5, borderWidth: 1, borderColor: '#3399ff',backgroundColor:'#3399ff'} }
               inputContainerStyle={ style = { height: 20, borderRadius: 25, top: -7, backgroundColor: '#ffffff' } }
               inputStyle={ style = { fontSize: 12, height: 20 } }
               placeholder="请输入..."
@@ -148,28 +170,28 @@ export default class RTab extends React.Component {
             <Image source={ require('../../src/assets/images/u8.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u10.jpg') } style={ styles.img } />
             <Image source={ require('../../src/assets/images/u6.jpg') } style={ styles.img } />
-            <Image source={require('../../src/assets/images/u3.jpg')} style={styles.img}/>
-            <Image source={require('../../src/assets/images/contemplative-reptile.jpg')} style={styles.img}/>
+            <Image source={ require('../../src/assets/images/u3.jpg') } style={ styles.img } />
+            <Image source={ require('../../src/assets/images/contemplative-reptile.jpg') } style={ styles.img } />
           </Swiper>
         </View>
-        <View style={{height:270}}>
-        <ScrollView style={ styles.xyys }>
-        <View style={ { flexDirection: 'row' } }>
-            { this.renderItem(1) }
-          </View>
-          <View style={ { flexDirection: 'row' } }>
-          { this.renderItem(2) }
-          </View>
-          <View style={ { flexDirection: 'row' } }>
-          { this.renderItem(3) }
-          </View>
-          <View style={ { flexDirection: 'row' } }>
-          { this.renderItem(1) }
-          </View>
-          <View style={ { flexDirection: 'row' } }>
-          { this.renderItem(3) }
-          </View>
-        </ScrollView>
+        <View style={ { height: 270 } }>
+          <ScrollView style={ styles.xyys }>
+            <View style={ { flexDirection: 'row' } }>
+              { this.renderItem(1) }
+            </View>
+            <View style={ { flexDirection: 'row' } }>
+              { this.renderItem(2) }
+            </View>
+            <View style={ { flexDirection: 'row' } }>
+              { this.renderItem(3) }
+            </View>
+            <View style={ { flexDirection: 'row' } }>
+              { this.renderItem(1) }
+            </View>
+            <View style={ { flexDirection: 'row' } }>
+              { this.renderItem(3) }
+            </View>
+          </ScrollView>
         </View>
         <View style={ { marginTop: 22 } }>
           <Modal
@@ -233,7 +255,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     marginLeft: 6,
     width: 50,
-    height:60,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center'
   }
