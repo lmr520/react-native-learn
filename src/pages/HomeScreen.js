@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Modal, Text, View, ScrollView, TouchableHighlight, TouchableOpacity, AsyncStorage } from 'react-native';
+import { Image, Platform, StyleSheet, Modal, Text, View, ScrollView, TouchableHighlight, TouchableOpacity, AsyncStorage, Dimensions } from 'react-native';
 import { Card, ListItem, Button, Icon, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay } from 'react-native-elements';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ScaleSize, ScaleText } from 'react-native-scale-size';
@@ -10,6 +10,8 @@ import icons from './xyys/icons';
 import { WToast } from 'react-native-smart-tip'
 import { WSnackBar } from 'react-native-smart-tip'
 import { WModal } from 'react-native-smart-tip'
+import BouncingBalls from 'react-native-bouncing-ball'
+import img_arr from '../config/imgarr'
 import UTIL from '../config/utils/UTIL';
 export default class HomeScreen extends React.Component {
   state = {
@@ -17,7 +19,8 @@ export default class HomeScreen extends React.Component {
     users: [],
     search: '',
     isVisible: true,
-    modalVisible: false
+    modalVisible: false,
+    modalVisible2:false
   }
   updateSearch = search => {
     this.setState({ search });
@@ -96,9 +99,19 @@ export default class HomeScreen extends React.Component {
         return this.show();
       case 'show3':
         return this.show3();
+      case 'tomsg':
+        return this.tomsg();
+      case 'gom2':
+        return this.gom2();
       default:
         return this.show();
     }
+  }
+  gom2=()=>{
+    this.setState({ modalVisible2: true });
+  }
+  tomsg = () => {
+    this.props.navigation.navigate('MsgList');
   }
   show2 = () => {
     const snackBarOpts = {
@@ -134,16 +147,52 @@ export default class HomeScreen extends React.Component {
     for (let index = lineindex; index < linelength; index++) {
       const xyy = xyys[index];
       itemAry.push(
-        <View style={ styles.xyyicon }
+        <View style={ { flexDirection: "row" } }
         >
-          <MaterialCommunityIcons name={ icons.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * icons.length)] } size={ xyy.icon.size } color={ '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0') }
-            onPress={ () => {
-              this.runxyy(xyy.function);
-            } }
-          />
-          <Text style={ { fontSize: ScaleText(11), fontWeight: 'bold', top: ScaleSize(5) } }>
-            { xyy.name }
-          </Text>
+          <View style={ styles.xyyicon }>
+            <MaterialCommunityIcons name={ icons.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * icons.length)] } size={ xyy.icon.size }
+            color={ colorjson.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * colorjson.length)] }
+            //  color={ '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0') }
+              onPress={ () => {
+                this.runxyy(xyy.function);
+              } }
+            />
+            <Text style={ { fontSize: ScaleText(11), fontWeight: 'bold', top: ScaleSize(5) } }>
+              { xyy.name }
+            </Text>
+          </View>
+          <View
+            style={ [1, 3, 5, 12, 17].indexOf(index) ? {
+              // /If you're using react-native < 0.57 overflow outside of the parent
+              // will not work on Android, see https://git.io/fhLJ8
+              position: 'absolute',
+              right: 0.5,
+              top: 0.5,
+              backgroundColor: '#FFF',
+              borderRadius: 6,
+              width: 10,
+              height: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+            } : {
+                // /If you're using react-native < 0.57 overflow outside of the parent
+                // will not work on Android, see https://git.io/fhLJ8
+                position: 'absolute',
+                right: 0.5,
+                top: 0.5,
+                backgroundColor: 'red',
+                borderRadius: 6,
+                width: 10,
+                height: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+              } }>
+            <Text style={ { color: 'white', fontSize: 7, fontWeight: 'bold' } }>
+              { [1, 3, 5, 12, 17].indexOf(index) ? '' : 9 }
+            </Text>
+          </View>
+
+
         </View>
       );
     }
@@ -169,7 +218,9 @@ export default class HomeScreen extends React.Component {
       itemAry.push(
         <View style={ styles.xyyicon2 }
         >
-          <MaterialCommunityIcons name={ icons.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * icons.length)] } size={ xyy.icon.size } color={ '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0') }
+
+          <MaterialCommunityIcons name={ icons.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * icons.length)] } size={ xyy.icon.size }
+           color={ colorjson.slice().sort(() => Math.random() - 0.5)[Math.floor(Math.random() * colorjson.length)] }
             onPress={ () => {
               this.runxyy(xyy.function);
             } }
@@ -178,6 +229,7 @@ export default class HomeScreen extends React.Component {
             { xyy.name }
           </Text>
         </View>
+
       );
     }
     return itemAry;
@@ -187,6 +239,20 @@ export default class HomeScreen extends React.Component {
     /* 2. Read the params from the navigation state */
     return (
       <View style={ { flex: 1, flexDirection: 'column', backgroundColor: '#F0F0F0' } }>
+         <BouncingBalls
+          amount={10}
+          animationDuration={5000}
+          minSpeed={30}
+          maxSpeed={200}
+          minSize={40}
+          maxSize={100}
+          imageBall={img_arr['lsc']}
+          style={{}}
+          // style={[
+          //   {backgroundColor:'#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0')}
+          // ]
+          //   }   
+         />
         <View>
           <Header
             containerStyle={ {
@@ -197,24 +263,37 @@ export default class HomeScreen extends React.Component {
             } }
             // backgroundImage={ require('../../src/assets/images/contemplative-reptile.jpg')}
             leftComponent={
-              <View style={{flexDirection: 'row'}}>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1,alignItems:'flex-start' } }>
                 <MaterialCommunityIcons name={ 'comment-arrow-left' } size={ 28 } color={ '#fff' }
-                style={ { top: -5 } }
-                onPress={ () => {
-                  this.runxyy("tomenu");
-                } }
-              />
-              <Badge
-              value={5}
-    status="success"
-    containerStyle={{ position: 'absolute', top: -8, right: -8}}
-  />
+                  style={ { top: -5 } }
+                  onPress={ () => {
+                    this.runxyy("tomsg");
+                  } }
+                />
+                <View
+                  style={ {
+                    // /If you're using react-native < 0.57 overflow outside of the parent
+                    // will not work on Android, see https://git.io/fhLJ8
+                    position: 'absolute',
+                    right: -6,
+                    top: -3,
+                    backgroundColor: 'red',
+                    borderRadius: 6,
+                    width: 12,
+                    height: 12,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  } }>
+                  <Text style={ { color: 'white', fontSize: 10, fontWeight: 'bold' } }>
+                    { 9 }
+                  </Text>
+                </View>
               </View>
-             
-              
+
+
             }
             centerComponent={ <SearchBar
-              containerStyle={ style = { width: ScaleSize(280), height: ScaleSize(35), top: ScaleSize(-5), borderRadius: 2.5, borderWidth: 1, borderColor: '#3399ff', backgroundColor: '#3399ff' } }
+              containerStyle={ style = { width: Dimensions.get("screen").width * 6 / 8, height: ScaleSize(35), top: ScaleSize(-5), borderRadius: 2.5, borderWidth: 1, borderColor: '#3399ff', backgroundColor: '#3399ff' } }
               inputContainerStyle={ style = { height: ScaleSize(18), borderRadius: 25, top: ScaleSize(-6), backgroundColor: '#ffffff' } }
               inputStyle={ style = { fontSize: ScaleText(12), height: ScaleSize(18) } }
               placeholder="请输入..."
@@ -223,10 +302,10 @@ export default class HomeScreen extends React.Component {
               lightTheme={ true }
               clearIcon={ { icon: 'menu', color: 'gray' } }
             /> }
-            rightComponent={ <MaterialCommunityIcons name={ 'cube-scan' } size={ 28 } color={ '#fff' }
-              style={ { top: -5 } }
+            rightComponent={ <MaterialCommunityIcons name={ 'image-filter-vintage' } size={ 28 } color={ '#fff' }
+              style={ { top: -5,alignItems:'flex-end'} }
               onPress={ () => {
-                this.runxyy("tomenu");
+                this.runxyy("tomusic");
               } }
             /> }
           />
@@ -270,38 +349,38 @@ export default class HomeScreen extends React.Component {
             <Image source={ require('../../src/assets/images/contemplative-reptile.jpg') } style={ styles.img } />
           </Swiper>
         </View>
-        <View style={ { height: ScaleSize(280) } }>
+        <View style={ { height: Dimensions.get('window').height * 4.1 / 10, } }>
           <ScrollView style={ styles.xyys }>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(1) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(2) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(3) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(1) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(2) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(3) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(1) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(3) }
             </View>
-            <View style={ { flexDirection: 'row' } }>
+            <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
               { this.renderItem(2) }
             </View>
           </ScrollView>
         </View>
-        <View style={{  alignItems: 'center', width:"auto"}}>
+        <View style={ { alignItems: 'center', width: "auto" } }>
           <Overlay
             isVisible={ this.state.modalVisible }
             windowBackgroundColor="rgba(255, 255, 255, .1)"
@@ -310,53 +389,86 @@ export default class HomeScreen extends React.Component {
             height="auto"
             onBackdropPress={ () => this.setState({ modalVisible: false }) }
           >
-          <View style={styles.row}>
-          <Text>小应用列表</Text>
-          <MaterialCommunityIcons name={ 'hand-okay' } size={ 32} color={ 'red' }
-              style={ { top: -12,right:-130,backgroundColor:"#cccccf",
-              borderWidth: ScaleSize(1),
-              borderRadius: 5,
-              borderColor: '#C7C7C7',
-            } }
-              onPress={() => this.setState({ modalVisible: false })}
-            /> 
-          </View>
 
-          <ScrollView style={ styles.xyys2 }>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(1) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(2) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(3) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(1) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(2) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(3) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(1) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(3) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(2) }
-            </View>
-            <View style={ { flexDirection: 'row' } }>
-              { this.renderItem2(3) }
-            </View>
-          </ScrollView>
+            <Button title={ '小应用列表' }
+              style={ styles.row }
+              onPress={ () => this.setState({ modalVisible: false }) }
+            ></Button>
+            {/* <MaterialCommunityIcons name={ 'hand-okay' } size={ 32 } color={ 'red' }
+                style={ {
+                  top: -12, right: -130, backgroundColor: "#cccccf",
+                  borderWidth: ScaleSize(1),
+                  borderRadius: 5,
+                  borderColor: '#C7C7C7',
+                } }
+                onPress={ () => this.setState({ modalVisible: false }) }
+              /> */}
+
+
+            <ScrollView style={ styles.xyys2 }>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(1) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(2) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(1) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(2) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(1) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(2) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+              <View style={ { flexDirection: 'row', marginBottom: 1, marginTop: 1 } }>
+                { this.renderItem2(3) }
+              </View>
+            </ScrollView>
           </Overlay>
         </View>
-
+        <View style={ { alignItems: 'center', width: "auto" } }>
+          <Overlay
+            isVisible={ this.state.modalVisible2 }
+            windowBackgroundColor="rgba(255, 255, 255, .1)"
+            overlayBackgroundColor="#F0F0F0"
+            width={Dimensions.get('window').width}
+            height={Dimensions.get('window').height}
+            onBackdropPress={ () => this.setState({ modalVisible2: false }) }
+          >
+             <BouncingBalls
+          amount={10}
+          animationDuration={5000}
+          minSpeed={30}
+          maxSpeed={200}
+          minSize={40}
+          maxSize={100}
+          imageBall={img_arr['lsc']||img_arr['fan']}
+          // style={[
+          //   {backgroundColor:'#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0')}
+          // ]
+          //   }   
+         />
+          </Overlay>
+          </View>
       </View>
     );
   }
@@ -374,12 +486,12 @@ const styles = StyleSheet.create({
     borderColor: 'gray'
   },
   img: {
-    width: ScaleSize(374),
+    width: Dimensions.get("screen").width,
     height: ScaleSize(200),
   },
   xyys: {
     flexDirection: 'column',
-    height: ScaleSize(280),
+    height: Dimensions.get('window').height * 4.1 / 10,
     top: ScaleSize(20),
     marginLeft: ScaleSize(6),
     marginRight: ScaleSize(6),
@@ -390,33 +502,27 @@ const styles = StyleSheet.create({
   },
   xyys2: {
     flexDirection: 'column',
-    height: ScaleSize(500),
+    height: Dimensions.get('window').height * 9 / 10,
     top: ScaleSize(8),
-    marginLeft: ScaleSize(2),
-    marginRight: ScaleSize(2),
     borderWidth: ScaleSize(1),
     borderRadius: 5,
     borderColor: '#C7C7C7',
     backgroundColor: '#FFF'
   },
   xyyicon2: {
-    marginTop: ScaleSize(3),
-    marginLeft: ScaleSize(2),
-    width: ScaleSize(55),
-    height: ScaleSize(60),
+    width: ScaleSize(59),
+    height: Dimensions.get('window').height * 2 / 10,
     alignItems: 'center',
     justifyContent: 'center'
   },
   xyyicon: {
-    marginTop: ScaleSize(5),
-    marginLeft: ScaleSize(4),
-    width: ScaleSize(55),
-    height: ScaleSize(60),
+    width: ScaleSize(59),
+    height: Dimensions.get('window').height / 10,
     alignItems: 'center',
     justifyContent: 'center'
   },
   row: {
-    height:37,
+    height: Dimensions.get('window').height / 10,
     flexDirection: 'row',
     justifyContent: "center",
     alignItems: "center",

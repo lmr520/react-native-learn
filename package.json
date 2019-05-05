@@ -7,8 +7,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "aurora-imui-react-native": "^0.14.0",
     "react": "16.8.3",
     "react-native": "^0.59.6",
+    "react-native-bouncing-ball": "^0.1.1",
     "react-native-cookies": "^3.3.0",
     "react-native-elements": "^1.1.0",
     "react-native-fs": "^2.13.3",
@@ -21,6 +23,7 @@
     "react-native-smart-tip": "^1.0.1",
     "react-native-spring-scrollview": "^2.0.20",
     "react-native-svg": "^9.4.0",
+    "react-native-swipe-list-view": "^1.5.3",
     "react-native-swiper": "^1.5.14",
     "react-native-tab-navigator": "^0.3.4",
     "react-native-tableview": "^2.5.0",

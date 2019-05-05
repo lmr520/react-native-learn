@@ -1,26 +1,29 @@
 import React from 'react';
-import { Button, Image, Platform, View, Text,StyleSheet} from 'react-native';
-import {createAppContainer,createBottomTabNavigator,createStackNavigator,createSwitchNavigator} from 'react-navigation';
+import { Button, Image, Platform, View, Text, StyleSheet } from 'react-native';
+import { createAppContainer, createBottomTabNavigator, createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import HomeScreen from './src/pages/HomeScreen';
 import DetailsScreen from './src/pages/DetailsScreen';
 import Cust from './src/pages/Cust';
 import RTable from './src/pages/RTab';
-import  Login from './src/pages/Login';
+import Login from './src/pages/Login';
 import AuthLoading from './src/pages/AuthLoading';
 import Customer from './src/pages/customer/customer';
 import videodetail from './src/pages/details/videodetail';
 import Menu from './src/pages/customer/menus';
 import MusicList from './src/pages/pagetable/musiclist';
+import chart from './src/pages/customer/chart';
+import imchart from './src/pages/msg/imchart'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import msglist from './src/pages/msg/msglist';
 class IconWithBadge extends React.Component {
   render() {
     const { name, badgeCount, color, size } = this.props;
     return (
-      <View style={{ width: 24, height: 24, margin: 5 }}>
-        <MaterialCommunityIcons name={name} size={size} color={color} />
-        {badgeCount > 0 && (
+      <View style={ { width: 24, height: 24, margin: 5 } }>
+        <MaterialCommunityIcons name={ name } size={ size } color={ color } />
+        { badgeCount > 0 && (
           <View
-            style={{
+            style={ {
               // /If you're using react-native < 0.57 overflow outside of the parent
               // will not work on Android, see https://git.io/fhLJ8
               position: 'absolute',
@@ -32,12 +35,12 @@ class IconWithBadge extends React.Component {
               height: 12,
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
-            <Text style={{ color: 'white', fontSize: 10, fontWeight: 'bold' }}>
-              {badgeCount}
+            } }>
+            <Text style={ { color: 'white', fontSize: 10, fontWeight: 'bold' } }>
+              { badgeCount }
             </Text>
           </View>
-        )}
+        ) }
       </View>
     );
   }
@@ -45,7 +48,7 @@ class IconWithBadge extends React.Component {
 
 const HomeIconWithBadge = props => {
   // You should pass down the badgeCount in some other ways like context, redux, mobx or event emitters.
-  return <IconWithBadge {...props} badgeCount={3} />;
+  return <IconWithBadge { ...props } badgeCount={ 3 } />;
 };
 
 const getTabBarIcon = (navigation, focused, tintColor) => {
@@ -59,16 +62,16 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   } else if (routeName === 'Details') {
     iconName = `cart${focused ? '' : '-outline'}`;
     IconComponent = HomeIconWithBadge;
-  }else if (routeName === 'Cust') {
+  } else if (routeName === 'Cust') {
     iconName = `coffee${focused ? '' : '-outline'}`;
-  }else if (routeName === 'RTable') {
+  } else if (routeName === 'RTable') {
     iconName = `folder-star${focused ? '' : '-outline'}`;
   }
 
   // You can return any component that you like here!
-  return <IconComponent name={iconName} size={25} color={tintColor}/>;
+  return <IconComponent name={ iconName } size={ 25 } color={ tintColor } />;
 };
-const RootStack= createBottomTabNavigator(
+const RootStack = createBottomTabNavigator(
   {
     Home: {
       screen: HomeScreen,
@@ -76,60 +79,75 @@ const RootStack= createBottomTabNavigator(
     Details: {
       screen: DetailsScreen,
     },
-    Cust:{
-      screen:Cust,
+    Cust: {
+      screen: Cust,
     },
-    RTable:{
-      screen:RTable
+    RTable: {
+      screen: RTable
     }
   },
 
   {
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) =>
-      getTabBarIcon(navigation, focused, tintColor),
-    
+        getTabBarIcon(navigation, focused, tintColor),
+
 
     }),
     tabBarOptions: {
       activeTintColor: 'red',
       inactiveTintColor: '#fff',
-     style:{
-      backgroundColor:'#3399ff',
-      height: 50,
-      shadowColor: 'red',
-    shadowOffset: { width: 4, height: 4 }, 
-    shadowOpacity: 0.8, 
-    shadowRadius: 6, 
-    elevation: 10 
-     },
-     showLabel: false,
-     showIcon: true,
-     tabStyle: { // TabBar内单独tab的样式
-         height: 50,
-     },
-     labelStyle: { // TabBar内单独tab的文字样式
-         fontSize: 50,
-     },
+      style: {
+        backgroundColor: '#3399ff',
+        height: 50,
+        shadowColor: 'red',
+        shadowOffset: { width: 4, height: 4 },
+        shadowOpacity: 0.8,
+        shadowRadius: 6,
+        elevation: 10
+      },
+      showLabel: false,
+      showIcon: true,
+      tabStyle: { // TabBar内单独tab的样式
+        height: 50,
+      },
+      labelStyle: { // TabBar内单独tab的文字样式
+        fontSize: 50,
+      },
     }
   }
 );
-const OtherStack= createStackNavigator(
+const OtherStack = createStackNavigator(
   {
-    Home:RootStack,
+    Home: RootStack,
     Customer: {
       screen: Customer,
     },
     videodetail: {
       screen: videodetail,
     },
-    Menu:{
+    Menu: {
       screen: Menu,
     },
-    MusicList:{
+    MusicList: {
       screen: MusicList,
+    },
+    MsgList: {
+      screen: msglist,
+    },
+    Msgchart: {screen:imchart},
+    chart: { screen: chart, }
+  }, {
+    defaultNavigationOptions: {
+      headerStyle: {
+        height: 35,
+      }
     }
-  },);
+  }
+
+
+);
+
 // const RootStack = createStackNavigator(
 //   {
 //     Home: {
@@ -168,7 +186,7 @@ export default createAppContainer(createSwitchNavigator(
     AuthLoading: AuthLoading,
     App: RootStack,
     Auth: AuthStack,
-    Other:OtherStack,
+    Other: OtherStack,
   },
   {
     initialRouteName: 'AuthLoading',
@@ -182,14 +200,14 @@ export default createAppContainer(createSwitchNavigator(
 //   }
 // }
 const styles = StyleSheet.create({
- 
+
   shadowStyle: {
     shadowColor: 'rgba(0, 0, 0, 0.05)',
     shadowOffset: {
-        width: 0,
-        height: 2
+      width: 0,
+      height: 2
     },
     shadowRadius: 2,
     elevation: 4,
-}
+  }
 });

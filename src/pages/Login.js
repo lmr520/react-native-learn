@@ -81,7 +81,12 @@ export default class Login extends React.Component {
                             title="登录"
                         />
                     </View>
-
+             
+                    <View style={ { marginTop: 20, width: 200, marginLeft: 90, } }>
+                               <Text>
+              ©2019 lmr software Co.,Ltd
+            </Text>
+                    </View>
                 </View>
 
 

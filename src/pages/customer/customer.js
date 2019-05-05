@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity,AsyncStorage} from 'react-native';
+import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity,AsyncStorage,Dimensions} from 'react-native';
 import { Card, ListItem, Button, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay, Input } from 'react-native-elements';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -10,8 +10,7 @@ export default class customer extends React.Component {
     static navigationOptions = ({ navigation }) => {
     return {
         headerLeft:(
-            <View style={ { flex: 1, flexDirection: 'row' } }>
-          <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
+
             <MaterialCommunityIcons
               raised
               name='keyboard-backspace'
@@ -20,25 +19,10 @@ export default class customer extends React.Component {
               backgroundColor="#cccfff"
               size={ 25 }
               onPress={ navigation.getParam('back') } />
-            {/* <Button
-              icon={ <Icon name='ios-american-football' color='red'/> }
-              backgroundColor="#cccfff"
-              size={ 32 }
-              buttonStyle={ { borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 } }
-              onPress={ navigation.getParam('increaseCount') } /> */}
-            {/* <Icon name="ios-settings" size={40} color="red" /> */ }
-          </View>
-          {/* <View>  
-            <Button
-            onPress={navigation.getParam('increaseCount')}
-            title="+1"
-          >
-          </Button>
-          </View> */}
-        </View>
+         
         ),
       headerTitle: (
-          <View style={{marginLeft:100}}>
+        <View style={{width: Dimensions.get("screen").width*2/3, alignItems: 'center', justifyContent: 'center' }  }>
                 {/* <MaterialCommunityIcons
         raised
         name='rhombus-split'
@@ -53,8 +37,7 @@ export default class customer extends React.Component {
 
       ),
       headerRight: (
-        <View style={ { flex: 1, flexDirection: 'row' } }>
-          <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
+      
             <MaterialCommunityIcons
               raised
               name='settings'
@@ -63,23 +46,6 @@ export default class customer extends React.Component {
               backgroundColor="#cccfff"
               size={ 25 }
               onPress={ navigation.getParam('exitlogin') } />
-            {/* <Button
-              icon={ <Icon name='ios-american-football' color='red'/> }
-              backgroundColor="#cccfff"
-              size={ 32 }
-              buttonStyle={ { borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 } }
-              onPress={ navigation.getParam('increaseCount') } /> */}
-            {/* <Icon name="ios-settings" size={40} color="red" /> */ }
-          </View>
-          {/* <View>  
-            <Button
-            onPress={navigation.getParam('increaseCount')}
-            title="+1"
-          >
-          </Button>
-          </View> */}
-        </View>
-
       ),
     };
   };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform,FlatList, StyleSheet, Text, View, ScrollView, TouchableOpacity, AsyncStorage, Dimensions, Slider, TouchableWithoutFeedback } from 'react-native';
+import { Image, Platform, FlatList, StyleSheet, Text, View, ScrollView, TouchableOpacity, AsyncStorage, Dimensions, Slider, TouchableWithoutFeedback } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Card, ListItem, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay, Input, Button } from 'react-native-elements';
 import Video from 'react-native-video';
@@ -9,42 +9,42 @@ const videofiel = "";
 const screenWidth = Dimensions.get('window').width;
 const list = [
     {
-      name: 'Amy Farha',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-      subtitle: 'Vice President'
+        name: 'Amy Farha',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        subtitle: 'Vice President'
     },
     {
-      name: 'Chris Jackson',
-      avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-      subtitle: 'Vice Chairman'
+        name: 'Chris Jackson',
+        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
+        subtitle: 'Vice Chairman'
     },
     {
         name: 'Amy Farha',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
         subtitle: 'Vice President'
-      },
-      {
+    },
+    {
         name: 'Chris Jackson',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: 'Vice Chairman'
-      },
-      {
+    },
+    {
         name: 'Amy Farha',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
         subtitle: 'Vice President'
-      },
-      {
+    },
+    {
         name: 'Chris Jackson',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: 'Vice Chairman'
-      },
-  ];
-  const users = [
-    {
-      name: 'brynn',
-      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
     },
-  ]
+];
+const users = [
+    {
+        name: 'brynn',
+        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+    },
+]
 function formatTime(second) {
     let h = 0, i = 0, s = parseInt(second);
     if (s > 60) {
@@ -61,82 +61,40 @@ export default class videodetail extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
             headerLeft: (
-                <View style={ { flex: 1, flexDirection: 'row' } }>
-                    <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
-                        <MaterialCommunityIcons
-                            raised
-                            name='keyboard-backspace'
-                            type='font-awesome'
-                            color='#f50'
-                            backgroundColor="#cccfff"
-                            size={ 25 }
-                            onPress={ navigation.getParam('back') } />
-                        {/* <Button
-              icon={ <Icon name='ios-american-football' color='red'/> }
-              backgroundColor="#cccfff"
-              size={ 32 }
-              buttonStyle={ { borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 } }
-              onPress={ navigation.getParam('increaseCount') } /> */}
-                        {/* <Icon name="ios-settings" size={40} color="red" /> */ }
-                    </View>
-                    {/* <View>  
-            <Button
-            onPress={navigation.getParam('increaseCount')}
-            title="+1"
-          >
-          </Button>
-          </View> */}
-                </View>
+                <MaterialCommunityIcons
+                    raised
+                    name='keyboard-backspace'
+                    type='font-awesome'
+                    color='#f50'
+                    backgroundColor="#cccfff"
+                    size={ 25 }
+                    onPress={ navigation.getParam('back') } />
             ),
             headerTitle: (
-                <View style={ { marginLeft: 100 } }>
-                    {/* <MaterialCommunityIcons
-        raised
-        name='rhombus-split'
-        type='font-awesome'
-        color='#f50'
-        backgroundColor="#cccfff"
-        size={ 32 }
-        onPress={ navigation.getParam('exitlogin') } /> */}
+                <View style={ { width: Dimensions.get("screen").width * 2 / 3, alignItems: 'center', justifyContent: 'center' } }>
                     <Text>视频详情</Text>
                 </View>
 
 
             ),
             headerRight: (
-                <View style={ { flex: 1, flexDirection: 'row' } }>
-                    <View style={ { width: 50, height: 30, alignItems: 'center', justifyContent: 'center' } }>
-                        <MaterialCommunityIcons
-                            raised
-                            name='share-variant'
-                            type='font-awesome'
-                            color='#f50'
-                            backgroundColor="#cccfff"
-                            size={ 25 }
-                            onPress={ navigation.getParam('exitlogin') } />
-                        {/* <Button
-              icon={ <Icon name='ios-american-football' color='red'/> }
-              backgroundColor="#cccfff"
-              size={ 32 }
-              buttonStyle={ { borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 } }
-              onPress={ navigation.getParam('increaseCount') } /> */}
-                        {/* <Icon name="ios-settings" size={40} color="red" /> */ }
-                    </View>
-                    {/* <View>  
-            <Button
-            onPress={navigation.getParam('increaseCount')}
-            title="+1"
-          >
-          </Button>
-          </View> */}
-                </View>
+
+                <MaterialCommunityIcons
+                    raised
+                    name='share-variant'
+                    type='font-awesome'
+                    color='#f50'
+                    backgroundColor="#cccfff"
+                    size={ 25 }
+                    onPress={ navigation.getParam('exitlogin') } />
 
             ),
+
         };
     };
     state = {
-        videoUrl:img_arr['video'],
-        videoCover:img_arr['png1'],
+        videoUrl: img_arr['video'],
+        videoCover: img_arr['png1'],
         // videoCover: "http://124.129.157.208:8889/data/uploads/kecheng/2018/01/18/5a600b2c99836.png@0o_0l_220w.png",
         videoWidth: screenWidth,
         videoHeight: screenWidth * 9 / 16, // 默认16：9的宽高比
@@ -330,7 +288,7 @@ export default class videodetail extends React.Component {
                 <View style={ { width: this.state.videoWidth, height: this.state.videoHeight, backgroundColor: '#000000' } }>
                     <Video
                         ref={ (ref) => this.videoPlayer = ref }
-                        source={this.state.videoUrl}
+                        source={ this.state.videoUrl }
                         rate={ 1.0 }
                         volume={ 1.0 }
                         muted={ false }
@@ -359,7 +317,7 @@ export default class videodetail extends React.Component {
                                     height: this.state.videoHeight
                                 } }
                                 resizeMode={ 'cover' }
-                                source={this.state.videoCover}
+                                source={ this.state.videoCover }
                             /> : null
                     }
                     <TouchableWithoutFeedback onPress={ () => { this.hideControl() } }>
@@ -460,21 +418,21 @@ export default class videodetail extends React.Component {
                     </View>
 
                 </View>
-      <ScrollView tabLabel="首页" style={ styles.tabView }>
-          <View style={{top:10}}>
-            {
-              list.map((l, i) => (
-                <ListItem
-                  key={ i }
-                  leftAvatar={ { source: { uri: l.avatar_url } } }
-                  title={ l.name }
-                  subtitle={ l.subtitle }
-                />
-              ))
-            }
-          </View>
-        </ScrollView>   
-   
+                <ScrollView tabLabel="首页" style={ styles.tabView }>
+                    <View style={ { top: 10 } }>
+                        {
+                            list.map((l, i) => (
+                                <ListItem
+                                    key={ i }
+                                    leftAvatar={ { source: { uri: l.avatar_url } } }
+                                    title={ l.name }
+                                    subtitle={ l.subtitle }
+                                />
+                            ))
+                        }
+                    </View>
+                </ScrollView>
+
             </View>
         );
     }
@@ -524,19 +482,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 8,
         borderColor: '#C7C7C7',
-        width:200,
+        width: 200,
     },
     buttonstyle: {
         width: 60,
         margin: 3
     },
     tabView: {
-        top:20,
-        width:340,
-        height:300,
+        top: 20,
+        width: 340,
+        height: 300,
         backgroundColor: 'rgba(0,0,0,0.01)',
-      },
-      card: {
+    },
+    card: {
         borderWidth: 1,
         backgroundColor: '#fff',
         borderColor: 'rgba(0,0,0,0.1)',
@@ -547,5 +505,5 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 2, },
         shadowOpacity: 0.5,
         shadowRadius: 3,
-      },
+    },
 });

@@ -178,7 +178,7 @@ export default class customer extends React.Component {
         this.props.navigation.setParams({ back: this._signInAsync, exitlogin: this.exitlogin });
     };
     tomsg=()=>{
-        this.props.navigation.navigate('Msgchart');
+        this.props.navigation.navigate('imchart');
     }
     render() {
         const { search } = this.state;

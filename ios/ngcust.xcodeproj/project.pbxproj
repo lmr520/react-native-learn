@@ -66,6 +66,17 @@
 		A9BC98E3F71B4F7090A4249D /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EF3F16DB35A4A969696B034 /* libRCTVideo.a */; };
 		2D4C75BB882D4499958E8E81 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0257703EBE44D4A9450BFF2 /* libRCTOrientation.a */; };
 		F31824A6B8974DA2B5CD3DBD /* libRNSpringScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC98F8992DB64A129F9B705E /* libRNSpringScrollView.a */; };
+		56C86906FDAA48CE81CCB9E3 /* libAuroraIMUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A3968CA43A4B9C980DBD8B /* libAuroraIMUI.a */; };
+		847728DADAAF499BBE82488F /* RCTAuroraIMUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB89D27FF7C4C43A70FA201 /* RCTAuroraIMUI.framework */; };
+		6A13F944D7E44FC4AF673934 /* RCTAuroraIMUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = E9B8925C0FAB49B9A2E6093C /* RCTAuroraIMUITests.xctest */; };
+		8EBC3486152746FBBDD87A7A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB951E2E88441CFAD11D9A7 /* libz.tbd */; };
+		58E2FC9C2D3243B89410BA63 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9826D704DBE34CB0BA6255B9 /* CoreTelephony.framework */; };
+		7E60C9B7D18B4578B124D8F3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88A03AF7D25648B99724D570 /* CFNetwork.framework */; };
+		9A1A6DFC0D774A3795B526B9 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E7B10FAFD148AA9C911300 /* CoreFoundation.framework */; };
+		F4FE89A59F624B109702A1DD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A512B480E1ED488DBAF18BE0 /* SystemConfiguration.framework */; };
+		600AD018756E44F894E2D0DC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025B66A5B81443DB82E1BE4D /* Foundation.framework */; };
+		227987BFEB4C4827A75C1AFF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9713EFD5E442FA648B609 /* UIKit.framework */; };
+		020F310F8AE14DADB1B44053 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55F2D2F928B4054A1F537C0 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +420,18 @@
 		B0257703EBE44D4A9450BFF2 /* libRCTOrientation.a */ = {isa = PBXFileReference; name = "libRCTOrientation.a"; path = "libRCTOrientation.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		C45F7ED4F1C2414F8D1B7136 /* RNSpringScrollView.xcodeproj */ = {isa = PBXFileReference; name = "RNSpringScrollView.xcodeproj"; path = "../node_modules/react-native-spring-scrollview/ios/RNSpringScrollView.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		FC98F8992DB64A129F9B705E /* libRNSpringScrollView.a */ = {isa = PBXFileReference; name = "libRNSpringScrollView.a"; path = "libRNSpringScrollView.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		DBF558B800C04716A76848C2 /* RCTAuroraIMUI.xcodeproj */ = {isa = PBXFileReference; name = "RCTAuroraIMUI.xcodeproj"; path = "../node_modules/aurora-imui-react-native/ReactNative/ios/RCTAuroraIMUI.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		39A3968CA43A4B9C980DBD8B /* libAuroraIMUI.a */ = {isa = PBXFileReference; name = "libAuroraIMUI.a"; path = "libAuroraIMUI.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5BB89D27FF7C4C43A70FA201 /* RCTAuroraIMUI.framework */ = {isa = PBXFileReference; name = "RCTAuroraIMUI.framework"; path = "System/Library/Frameworks/RCTAuroraIMUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		E9B8925C0FAB49B9A2E6093C /* RCTAuroraIMUITests.xctest */ = {isa = PBXFileReference; name = "RCTAuroraIMUITests.xctest"; path = "RCTAuroraIMUITests.xctest"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.cfbundle; explicitFileType = undefined; includeInIndex = 0; };
+		AFB951E2E88441CFAD11D9A7 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		9826D704DBE34CB0BA6255B9 /* CoreTelephony.framework */ = {isa = PBXFileReference; name = "CoreTelephony.framework"; path = "System/Library/Frameworks/CoreTelephony.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		88A03AF7D25648B99724D570 /* CFNetwork.framework */ = {isa = PBXFileReference; name = "CFNetwork.framework"; path = "System/Library/Frameworks/CFNetwork.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		04E7B10FAFD148AA9C911300 /* CoreFoundation.framework */ = {isa = PBXFileReference; name = "CoreFoundation.framework"; path = "System/Library/Frameworks/CoreFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A512B480E1ED488DBAF18BE0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		025B66A5B81443DB82E1BE4D /* Foundation.framework */ = {isa = PBXFileReference; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0EA9713EFD5E442FA648B609 /* UIKit.framework */ = {isa = PBXFileReference; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		B55F2D2F928B4054A1F537C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +469,17 @@
 				A9BC98E3F71B4F7090A4249D /* libRCTVideo.a in Frameworks */,
 				2D4C75BB882D4499958E8E81 /* libRCTOrientation.a in Frameworks */,
 				F31824A6B8974DA2B5CD3DBD /* libRNSpringScrollView.a in Frameworks */,
+				56C86906FDAA48CE81CCB9E3 /* libAuroraIMUI.a in Frameworks */,
+				847728DADAAF499BBE82488F /* RCTAuroraIMUI.framework in Frameworks */,
+				6A13F944D7E44FC4AF673934 /* RCTAuroraIMUITests.xctest in Resources */,
+				8EBC3486152746FBBDD87A7A /* libz.tbd in Frameworks */,
+				58E2FC9C2D3243B89410BA63 /* CoreTelephony.framework in Frameworks */,
+				7E60C9B7D18B4578B124D8F3 /* CFNetwork.framework in Frameworks */,
+				9A1A6DFC0D774A3795B526B9 /* CoreFoundation.framework in Frameworks */,
+				F4FE89A59F624B109702A1DD /* SystemConfiguration.framework in Frameworks */,
+				600AD018756E44F894E2D0DC /* Foundation.framework in Frameworks */,
+				227987BFEB4C4827A75C1AFF /* UIKit.framework in Frameworks */,
+				020F310F8AE14DADB1B44053 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +635,14 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				AFB951E2E88441CFAD11D9A7 /* libz.tbd */,
+				9826D704DBE34CB0BA6255B9 /* CoreTelephony.framework */,
+				88A03AF7D25648B99724D570 /* CFNetwork.framework */,
+				04E7B10FAFD148AA9C911300 /* CoreFoundation.framework */,
+				A512B480E1ED488DBAF18BE0 /* SystemConfiguration.framework */,
+				025B66A5B81443DB82E1BE4D /* Foundation.framework */,
+				0EA9713EFD5E442FA648B609 /* UIKit.framework */,
+				B55F2D2F928B4054A1F537C0 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -647,6 +689,7 @@
 				A9E233FEBFD74E60B043D2A4 /* RCTVideo.xcodeproj */,
 				1A91C4C37ECD4E8E9A0FD97E /* RCTOrientation.xcodeproj */,
 				C45F7ED4F1C2414F8D1B7136 /* RNSpringScrollView.xcodeproj */,
+				DBF558B800C04716A76848C2 /* RCTAuroraIMUI.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1325,6 +1368,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1337,6 +1383,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Debug;
@@ -1370,6 +1417,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1382,6 +1432,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Release;
@@ -1413,6 +1464,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Debug;
@@ -1443,6 +1495,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Release;
@@ -1484,6 +1537,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1496,6 +1552,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Debug;
@@ -1537,6 +1594,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1549,6 +1609,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Release;
@@ -1589,6 +1650,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1601,6 +1665,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Debug;
@@ -1641,6 +1706,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)/System/Library/Frameworks\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1653,6 +1721,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-video\ios/**",
 					"$(SRCROOT)\..\node_modules\react-native-orientation\iOS\RCTOrientation/**",
 					"$(SRCROOT)\..\node_modules\react-native-spring-scrollview\ios\SpringScrollView",
+					"$(SRCROOT)\..\node_modules\aurora-imui-react-native\iOS\IMUIMessageCollectionView/**",
 				);
 			};
 			name = Release;

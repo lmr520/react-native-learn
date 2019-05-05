@@ -49,7 +49,7 @@
         }
     },{
         "id": "xyy6",
-        "name": "测试",
+        "name": "友圈",
         "function": "tomusic",
         "icon": {
             "name": "laptop-windows",
@@ -60,7 +60,7 @@
     {
         "id": "xyy7",
         "name": "测试",
-        "function": "test",
+        "function": "gom2",
         "icon": {
             "name": "movie-roll",
             "size": 22,

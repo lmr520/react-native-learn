@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity, AsyncStorage, Animated, AppRegistry, TouchableHighlight, Dimensions, ListView, } from 'react-native';
+import { Image, Platform, StyleSheet, Text, View, ScrollView, TouchableOpacity, AsyncStorage, Animated, AppRegistry, TouchableHighlight, Dimensions, ListView, InteractionManager } from 'react-native';
 import { Card, ListItem, Button, Badge, Avatar, withBadge, SocialIcon, Header, SearchBar, Divider, Overlay, Input } from 'react-native-elements';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
@@ -15,13 +15,13 @@ const list = [
             { key: 3, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },],
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
         subtitle: '你瞅啥，再瞅我怼你',
-        img:img_arr['lb']
+        img: img_arr['lb']
     },
     {
         key: 2, name: '甘肃老湿',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: '对方不想和你说话，并向你扔了个羊驼',
-        img:img_arr['lsc'],
+        img: img_arr['lsc'],
         data: [
             { key: 1, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg', subtitle: 'Vice President' },
             { key: 2, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },
@@ -31,7 +31,7 @@ const list = [
         key: 3, name: '台州小老弟',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: '来来，上车，老司机要开车了',
-        img:img_arr['fan'],
+        img: img_arr['fan'],
         data: [
             { key: 1, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg', subtitle: 'Vice President' },
             { key: 2, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },
@@ -45,13 +45,13 @@ const list = [
             { key: 3, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },],
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
         subtitle: '你瞅啥，再瞅我怼你',
-        img:img_arr['lb']
+        img: img_arr['lb']
     },
     {
         key: 5, name: '甘肃老湿',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: '对方不想和你说话，并向你扔了个羊驼',
-        img:img_arr['lsc'],
+        img: img_arr['lsc'],
         data: [
             { key: 1, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg', subtitle: 'Vice President' },
             { key: 2, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },
@@ -61,7 +61,7 @@ const list = [
         key: 6, name: '台州小老弟',
         avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
         subtitle: '来来，上车，老司机要开车了',
-        img:img_arr['fan'],
+        img: img_arr['fan'],
         data: [
             { key: 1, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg', subtitle: 'Vice President' },
             { key: 2, name: 'Amy Farha', avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg', subtitle: 'Vice Chairman' },
@@ -69,7 +69,7 @@ const list = [
     },
 
 ]
-export default class customer extends React.Component {
+export default class msglist extends React.Component {
     constructor(props) {
         super(props);
         this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
@@ -79,6 +79,7 @@ export default class customer extends React.Component {
             listType: '消息',
             listViewData: list,
             sectionListData: list,
+            renderPlaceholderOnly: true
         };
 
         this.rowSwipeAnimatedValues = {};
@@ -110,7 +111,7 @@ export default class customer extends React.Component {
     }
 
     onRowDidOpen = (rowKey, rowMap) => {
-        console.log('This row opened', rowKey);
+        // console.log('This row opened', rowKey);
     }
 
     onSwipeValueChange = (swipeData) => {
@@ -176,13 +177,30 @@ export default class customer extends React.Component {
     };
     componentWillMount() {
         this.props.navigation.setParams({ back: this._signInAsync, exitlogin: this.exitlogin });
+        this.setState({ renderPlaceholderOnly: false });
+        // InteractionManager.runAfterInteractions(() => {
+        //     this.setState({ renderPlaceholderOnly: false });
+        // });
+
     };
-    tomsg=()=>{
+    tomsg = () => {
         this.props.navigation.navigate('Msgchart');
     }
+    _renderPlaceholderView() {
+        return (
+            <View>
+                <Text>Loading...</Text>
+            </View>
+        );
+    }
+
     render() {
         const { search } = this.state;
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        if (this.state.renderPlaceholderOnly) {
+            return this._renderPlaceholderView();
+        }
+
         /* 2. Read the params from the navigation state */
         return (
             <View style={ styles.container }>
@@ -201,7 +219,7 @@ export default class customer extends React.Component {
                                 <View style={ { flexDirection: "row", } }>
                                     <Text
                                         style={ [
-                                            { color: this.state.listType === type ? 'red' : 'white' }
+                                            { color: this.state.listType === type ? '#f50' : 'white' }
                                         ] }
                                     >{ type }
                                     </Text>
@@ -244,7 +262,7 @@ export default class customer extends React.Component {
                                                 <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
                                                     <Text style={ { fontSize: 12, top: ScaleSize(6) } }>{ data.subtitle }</Text>
                                                 </View>
-                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10),  bottom: ScaleSize(20),alignItems: 'center' } }>
+                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10), bottom: ScaleSize(20), alignItems: 'center' } }>
                                                     <Text style={ styles.ratingText }>17:36</Text>
                                                     <Badge value={ 3 } textStyle={ { color: 'orange' } } containerStyle={ { top: ScaleSize(4) } }></Badge>
 
@@ -272,10 +290,10 @@ export default class customer extends React.Component {
                             <View style={ styles.rowBack }>
                                 <Text>Left</Text>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnLeft] } onPress={ _ => this.closeRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Close</Text>
+                                    <Text style={ styles.backTextWhite }>已读</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnRight] } onPress={ _ => this.deleteRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Delete</Text>
+                                    <Text style={ styles.backTextWhite }>删除</Text>
                                 </TouchableOpacity>
                             </View>
                         ) }
@@ -291,7 +309,7 @@ export default class customer extends React.Component {
                         dataSource={ this.ds.cloneWithRows(this.state.listViewData) }
                         renderRow={ data => (
                             <TouchableHighlight
-                                onPress={ _ => console.log('You touched me') }
+                                // onPress={ _ => console.log('You touched me') }
                                 style={ styles.rowFront }
                                 underlayColor={ '#AAA' }
                             >
@@ -300,10 +318,10 @@ export default class customer extends React.Component {
                                         style={ { width: ScaleSize(380), height: ScaleSize(70) } }
                                         subtitle={
                                             <View style={ styles.subtitleView }>
-                                               <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
+                                                <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
                                                     <Text style={ { fontSize: 12, top: ScaleSize(6) } }>{ data.subtitle }</Text>
                                                 </View>
-                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10),  bottom: ScaleSize(20),alignItems: 'center' } }>
+                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10), bottom: ScaleSize(20), alignItems: 'center' } }>
                                                     <Text style={ styles.ratingText }>17:36</Text>
                                                     <Badge value={ 3 } textStyle={ { color: 'orange' } } containerStyle={ { top: ScaleSize(4) } }></Badge>
 
@@ -331,10 +349,10 @@ export default class customer extends React.Component {
                             <View style={ styles.rowBack }>
                                 <Text>Left</Text>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnLeft] } onPress={ _ => this.closeRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Close</Text>
+                                    <Text style={ styles.backTextWhite }>已读</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnRight] } onPress={ _ => this.deleteRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Delete</Text>
+                                    <Text style={ styles.backTextWhite }>删除</Text>
                                 </TouchableOpacity>
                             </View>
                         ) }
@@ -350,7 +368,7 @@ export default class customer extends React.Component {
                         dataSource={ this.ds.cloneWithRows(this.state.listViewData) }
                         renderRow={ data => (
                             <TouchableHighlight
-                                onPress={this.exitlogin}
+                                onPress={ this.exitlogin }
                                 style={ styles.rowFront }
                                 underlayColor={ '#AAA' }
                             >
@@ -359,10 +377,10 @@ export default class customer extends React.Component {
                                         style={ { width: ScaleSize(380), height: ScaleSize(70) } }
                                         subtitle={
                                             <View style={ styles.subtitleView }>
-                                               <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
+                                                <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
                                                     <Text style={ { fontSize: 12, top: ScaleSize(6) } }>{ data.subtitle }</Text>
                                                 </View>
-                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10),  bottom: ScaleSize(20),alignItems: 'center' } }>
+                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10), bottom: ScaleSize(20), alignItems: 'center' } }>
                                                     <Text style={ styles.ratingText }>17:36</Text>
                                                     <Badge value={ 3 } textStyle={ { color: 'orange' } } containerStyle={ { top: ScaleSize(4) } }></Badge>
 
@@ -390,10 +408,10 @@ export default class customer extends React.Component {
                             <View style={ styles.rowBack }>
                                 <Text>Left</Text>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnLeft] } onPress={ _ => this.closeRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Close</Text>
+                                    <Text style={ styles.backTextWhite }>已读</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnRight] } onPress={ _ => this.deleteRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Delete</Text>
+                                    <Text style={ styles.backTextWhite }>删除</Text>
                                 </TouchableOpacity>
                             </View>
                         ) }
@@ -410,7 +428,7 @@ export default class customer extends React.Component {
                         dataSource={ this.ds.cloneWithRows(this.state.listViewData) }
                         renderRow={ data => (
                             <TouchableHighlight
-                                onPress={ _ => console.log('You touched me') }
+                                // onPress={ _ => console.log('You touched me') }
                                 style={ styles.rowFront }
 
                                 underlayColor={ '#AAA' }
@@ -423,7 +441,7 @@ export default class customer extends React.Component {
                                                 <View style={ { width: Dimensions.get('window').width * 4 / 6 } }>
                                                     <Text style={ { fontSize: 12, top: ScaleSize(6) } }>{ data.subtitle }</Text>
                                                 </View>
-                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10),  bottom: ScaleSize(20),alignItems: 'center' } }>
+                                                <View style={ { width: Dimensions.get('window').width / 6, flexDirection: "column", right: ScaleSize(10), bottom: ScaleSize(20), alignItems: 'center' } }>
                                                     <Text style={ styles.ratingText }>17:36</Text>
                                                     <Badge value={ 3 } textStyle={ { color: 'orange' } } containerStyle={ { top: ScaleSize(4) } }></Badge>
 
@@ -451,10 +469,10 @@ export default class customer extends React.Component {
                             <View style={ styles.rowBack }>
                                 <Text>Left</Text>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnLeft] } onPress={ _ => this.closeRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Close</Text>
+                                    <Text style={ styles.backTextWhite }>已读</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity style={ [styles.backRightBtn, styles.backRightBtnRight] } onPress={ _ => this.deleteRow(rowMap, `${secId}${rowId}`) }>
-                                    <Text style={ styles.backTextWhite }>Delete</Text>
+                                    <Text style={ styles.backTextWhite }>删除</Text>
                                 </TouchableOpacity>
                             </View>
                         ) }
@@ -668,11 +686,11 @@ const styles = StyleSheet.create({
         width: 75
     },
     backRightBtnLeft: {
-        backgroundColor: 'blue',
+        backgroundColor: 'teal',
         right: 75
     },
     backRightBtnRight: {
-        backgroundColor: 'red',
+        backgroundColor: '#f50',
         right: 0
     },
     controls: {
